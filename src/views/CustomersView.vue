@@ -1,5 +1,12 @@
 <script setup>
 import RouterLink from '../components/ui/RouterLink.vue'
+import Heading from '../components/ui/Heading.vue'
+
+defineProps({
+  title: {
+    type: String
+  }
+})
 
 </script>
 <template>
@@ -8,8 +15,8 @@ import RouterLink from '../components/ui/RouterLink.vue'
       Add Customer
     </RouterLink>
   </div>
-  <h1 class="text-4xl font-extrabold text-slate-500">
-    Customers
-  </h1>
+  <Heading>
+    {{ title }}
+  </Heading>
 </template>
 
