@@ -9,6 +9,11 @@ const router = createRouter({
       name: 'home',
       component: Customers,
     },
+    {
+      path: '/add-customer',
+      name: 'add-customer',
+      component: () => import('../views/NewCustomerView.vue'),
+    },
   ],
 });
 
