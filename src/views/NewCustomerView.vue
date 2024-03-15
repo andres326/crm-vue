@@ -1,7 +1,11 @@
 <script setup>
 import { FormKit } from '@formkit/vue'
+import axios from 'axios'
 import RouterLink from '../components/ui/RouterLink.vue'
 import Heading from '../components/ui/Heading.vue'
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 
 defineProps({
   title: {
@@ -9,18 +13,23 @@ defineProps({
   }
 })
 
-const handleSubmit = (data) => {
-  console.log(data)
+const handleSubmit = async (data) => {
+  try {
+    await axios.post('http://localhost:4000/customers', data)
+    router.push({ name: 'customers-list' })
+  } catch (error) {
+
+  }
 }
 </script>
 <template>
   <div class="flex justify-end">
-    <RouterLink to="home">Back</RouterLink>
+    <RouterLink to="customers-list">Back</RouterLink>
   </div>
   <Heading>
     {{ title }}
   </Heading>
-  <div class="mx-auto mt-10 shadow">
+  <div class="mx-auto mt-10 shadow bg-white">
     <div class="mx-auto md:w-3/4 py-20 px-6">
       <FormKit type="form" submit-label="Add" @submit="handleSubmit">
         <FormKit type="text" label="Name" name="name" placeholder="Customer Name" validation="required" />

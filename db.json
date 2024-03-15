@@ -1,3 +1,22 @@
 {
-  "customers": []
+  "customers": [
+    {
+      "id": "2011",
+      "name": "Pablo",
+      "lastName": "Cubillos",
+      "email": "pcubillos326@gmail.com",
+      "phone": "123-123-1234",
+      "company": "None",
+      "job": "None"
+    },
+    {
+      "id": "c9af",
+      "name": "Pablo",
+      "lastName": "Cubillos",
+      "email": "pablo.cubillos@globant.com",
+      "phone": "123-123-1234",
+      "company": "None",
+      "job": "None"
+    }
+  ]
 }
