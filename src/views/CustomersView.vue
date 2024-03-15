@@ -1,11 +1,9 @@
 <script setup>
-import { onMounted } from 'vue';
-import axios from 'axios'
+import { onMounted, ref, computed } from 'vue';
+import CustomerService from '../services/CustomerService'
 import RouterLink from '../components/ui/RouterLink.vue'
 import Heading from '../components/ui/Heading.vue'
 import Customer from '../components/Customer.vue';
-import { ref } from 'vue';
-import { computed } from 'vue';
 
 defineProps({
   title: {
@@ -17,7 +15,7 @@ const customers = ref([])
 
 onMounted(async () => {
   try {
-    const { data } = await axios.get('http://localhost:4000/customers')
+    const { data } = await CustomerService.getCustomers()
     customers.value = data
   } catch (error) {
 
