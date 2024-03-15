@@ -7,16 +7,7 @@
       "email": "pablo.cubillos@globant.com",
       "phone": "123-123-1234",
       "company": "None",
-      "status": 1
-    },
-    {
-      "id": "49bh",
-      "name": "Pablo",
-      "lastName": "Cubillos",
-      "email": "pablo.cubillos@globant.com",
-      "phone": "123-123-1234",
-      "company": "None",
-      "status": 0
+      "status": false
     }
   ]
 }

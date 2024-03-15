@@ -23,6 +23,25 @@ onMounted(async () => {
 })
 const hasCustomers = computed(() => customers.value.length > 0)
 
+const updateCustomerStatus = async ({ id, status }) => {
+  try {
+    await CustomerService.updateCustomerStatus(id, { status: !status })
+    const i = customers.value.findIndex(elem => elem.id === id)
+    customers.value[i].status = !status
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const deleteCustomer = async (id) => {
+  try {
+    await CustomerService.deleteCustomer(id)
+    customers.value = customers.value.filter(elem => elem.id !== id)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 </script>
 <template>
   <div class="flex justify-end">
@@ -46,7 +65,8 @@ const hasCustomers = computed(() => customers.value.length > 0)
             </tr>
           </thead>
           <tbody class="divide-y divide-gray-200 bg-white">
-            <Customer v-for="customer in customers" :key="customer.id" :customer="customer" />
+            <Customer v-for="customer in customers" :key="customer.id" :customer="customer"
+              @update-status="updateCustomerStatus" @delete-customer="deleteCustomer" />
           </tbody>
         </table>
       </div>

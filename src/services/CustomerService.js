@@ -13,4 +13,10 @@ export default {
   updateCustomer(id, data) {
     return api.patch(`/customer/${id}`, data);
   },
+  updateCustomerStatus(id, data) {
+    return api.patch(`/customer/${id}`, data);
+  },
+  deleteCustomer(id) {
+    return api.delete(`/customer/${id}`);
+  },
 };
